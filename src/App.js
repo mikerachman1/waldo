@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Header';
+import Leaderboard from './Leaderboard';
 
 function App() {
   const [found, setFound] = useState(0);
@@ -27,7 +28,7 @@ function App() {
     <div className='App'>
       <h1>Where's Waldo</h1>
       {/* replace null with leaderboard component */}
-      {gameOver ? null : <Header time={time} setTime={setTime}/>}
+      {gameOver ? <Leaderboard time={time} /> : <Header time={time} setTime={setTime}/>}
       <div id='search-pic'>
         <button className='char-button' 
                 id='waldo-btn'
