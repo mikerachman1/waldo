@@ -3,9 +3,12 @@ html {
 }
 
 * {
-  color: white;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+}
+
+h1 {
+  color: white;
 }
 
 .App {
@@ -28,6 +31,7 @@ html {
   background-color: #fff;
   width: 540px;
   border-radius: 10px;
+  border: 5px solid red;
 }
 
 .characters > img {
@@ -42,6 +46,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: sticky;
+  top: 0px;
+  z-index: 101;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 .char-button {
@@ -49,30 +59,28 @@ html {
   height: 40px;
   background-color: #fff;
   position: absolute;
+  border: none;
+  /* border: 5px solid black; */
+  background-color: transparent;
+  border-radius: 50%;
 }
 
 #waldo-btn {
-  background-color: red;
   top: 346px;
   right: 552px;
 }
 
 #wenda-btn {
-  background-color: green;
   top: 372px;
   right: 320px;
 }
 
 #wizard-btn {
-  background-color: purple;
   top: 327px;
   left: 381px;
 }
 
 #odlaw-btn {
-  background-color: aqua;
-  top: 10px;
-  left: 10px;
   top: 320px;
   left: 138px;
 }
