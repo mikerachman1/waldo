@@ -1,10 +1,11 @@
 import React from "react";
 
-const Header = () => {
+const Header = (props) => {
+  const { time } = props;
   return (
     <div id="header">
       <div className="counter">
-        <h2>Counter</h2>
+        <h2 className="timer">{time}</h2>
       </div>
       <div className="characters">
         <img src="https://where-s-waldo-eece1.web.app/static/media/waldo.92dd6e4f.webp" 
@@ -17,7 +18,7 @@ const Header = () => {
               />
         <img src="https://where-s-waldo-eece1.web.app/static/media/wizard.f54f77e5.webp" 
               alt="wizard"
-              id="wenda-sticky"
+              id="wizard-sticky"
               />
         <img src="https://where-s-waldo-eece1.web.app/static/media/odlaw.46f85d87.webp" 
               alt="odlaw" 
