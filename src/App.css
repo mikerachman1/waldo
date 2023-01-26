@@ -1,3 +1,78 @@
-h1 {
-  color: red;
+html {
+  background-color: black;
+}
+
+* {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#search-pic {
+  background-image: url(https://images6.alphacoders.com/925/925904.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 1100px;
+  width: 1490px;
+  position: relative;
+}
+
+.characters {
+  margin: 1rem;
+  background-color: #fff;
+  width: 540px;
+  border-radius: 10px;
+}
+
+.characters > img {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  object-position: top;
+  margin: 0 1rem;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.char-button {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  position: absolute;
+}
+
+#waldo-btn {
+  background-color: red;
+  top: 346px;
+  right: 552px;
+}
+
+#wenda-btn {
+  background-color: green;
+  top: 372px;
+  right: 320px;
+}
+
+#wizard-btn {
+  background-color: purple;
+  top: 327px;
+  left: 381px;
+}
+
+#odlaw-btn {
+  background-color: aqua;
+  top: 10px;
+  left: 10px;
+  top: 320px;
+  left: 138px;
 }
