@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Header = (props) => {
-  const { time } = props;
+  const { time, setTime } = props;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(time => time + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div id="header">
       <div className="counter">

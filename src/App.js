@@ -5,6 +5,7 @@ import Header from './Header';
 function App() {
   const [found, setFound] = useState(0);
   const [time, setTime] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   const handleFind = (charName) => {
     const button = document.querySelector(`#${charName}-btn`)
@@ -14,21 +15,19 @@ function App() {
     setFound(found + 1);
   };
 
-  useEffect(() => {
-    setTimeout(() => setTime(time + 1), 1000);
-  }, [time])
-
   // check for end game on every character find
   useEffect(() => {
     if (found === 4) { 
-      console.log('end game') 
+      console.log('end game')
+      setGameOver(true); 
     }
   }, [found]);
 
   return (
     <div className='App'>
       <h1>Where's Waldo</h1>
-      <Header time={time}/>
+      {/* replace null with leaderboard component */}
+      {gameOver ? null : <Header time={time} setTime={setTime}/>}
       <div id='search-pic'>
         <button className='char-button' 
                 id='waldo-btn'
