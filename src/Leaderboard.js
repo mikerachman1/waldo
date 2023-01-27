@@ -6,7 +6,10 @@ const Leaderboard = (props) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
-    if (name === '') { return };
+    if (name === '') { 
+      alert('Please enter a name to submit your score!!!'); 
+      return 
+    };
     setSubmitted(true);
   };
   
