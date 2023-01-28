@@ -56,7 +56,7 @@ const Leaderboard = (props) => {
           <h2>Scores:</h2>
           <div className="scores">
             {scores.map((score) => (
-              <div key={score.id}>
+              <div className="score" key={score.id}>
                 <span>{score.data.name}</span>
                 <span>{score.data.time} seconds</span>
               </div>
