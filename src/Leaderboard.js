@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SubmitMessage from "./SubmitMessage";
+import db from "./firebase";
+import { addDoc, collection, getDocs, orderBy, query } from "firebase/firestore";
 
 const Leaderboard = (props) => {
+  const { time } = props;
+
   const [name, setName] = useState('');
+  const [scores, setScores] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (name === '') { 
       alert('Please enter a name to submit your score!!!'); 
       return 
     };
+    await addDoc(collection(db, "scores"), {
+      name: name,
+      time: time
+    });
     setSubmitted(true);
   };
-  
-  const { time } = props;
+
+  useEffect(() => {
+    async function fetchScores() {
+      const scoresRef = collection(db, "scores");
+      const dbScores = await getDocs(query(scoresRef, orderBy('time')));
+      const fetchedScores = [];
+      dbScores.forEach((score) => {
+        fetchedScores.push({ id: score.id, data: score.data() });
+      });
+      setScores(fetchedScores);
+    }
+    fetchScores();
+  }, []);
+
   return (
     <div>
       <div className="overlay"></div>
@@ -32,8 +53,14 @@ const Leaderboard = (props) => {
           </label>
           <br />
           <button onClick={() => handleSubmit()}>Submit</button>
+          <h2>Scores:</h2>
           <div className="scores">
-            <h2>Scores</h2>
+            {scores.map((score) => (
+              <div key={score.id}>
+                <span>{score.data.name}</span>
+                <span>{score.data.time} seconds</span>
+              </div>
+            ))}
           </div>
         </div>
       }
